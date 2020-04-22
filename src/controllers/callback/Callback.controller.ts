@@ -25,11 +25,11 @@ class CallbackController implements IControllerBase {
 
   screenshotCallback = async (req: Request, res: Response) => {
     const callbackInput: ICallbackInput = req.body
-    console.log(callbackInput.zipped_url);
+    console.log(callbackInput);
     callbackInput.screenshots.forEach(async screenShot => {
       let result: any = await this.postToSlack(screenShot);
       console.log(
-        `A message was posted to conversation ${result.channel} with id ${result.ts} which contains the message ${result.message}`
+        `A message was posted to conversation ${result.channel} with id ${result.ts}`
       );
     });
     res.status(200).send();
