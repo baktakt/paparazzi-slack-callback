@@ -25,7 +25,6 @@ class CallbackController implements IControllerBase {
 
   screenshotCallback = async (req: Request, res: Response) => {
     const callbackInput: ICallbackInput = req.body
-    console.log(callbackInput);
     callbackInput.screenshots.forEach(async screenShot => {
       let result: any = await this.postToSlack(screenShot);
       console.log(
@@ -71,7 +70,7 @@ class CallbackController implements IControllerBase {
             },
             {
               type: 'mrkdwn',
-              text: '*Url:*\n' + process.env.SCREENSHOT_URL
+              text: '*Url:*\n' + screenshot.url
             },
             {
               type: 'mrkdwn',

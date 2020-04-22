@@ -1,5 +1,6 @@
 interface IScreenshot {
   id: string
+  url: string
   browser: string
   browser_version: string
   os: string
